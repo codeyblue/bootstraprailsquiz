@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312155153) do
+ActiveRecord::Schema.define(version: 20140312192835) do
 
   create_table "choices", force: true do |t|
-    t.string  "text"
     t.boolean "correct"
     t.integer "question_id"
+    t.string  "image_src"
   end
 
   create_table "questions", force: true do |t|
