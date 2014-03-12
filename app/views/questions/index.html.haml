@@ -1,0 +1,39 @@
+/ # March 2014
+/ # Author: Kyla Kolb
+
+%h1
+  Listing questions
+
+%p
+  Total: 
+  = @questions.size
+%p
+  = link_to 'New Question', new_question_path
+
+%table{border: "1"}
+  %tr
+    %th
+      Text
+    %th
+      Choices
+    %th
+    %th
+    %th
+
+  - @questions.each do |question|
+    %tr
+      %td
+        = question.text
+      %td
+        %ul
+          - question.choices.each do |choice|
+            %li
+              = choice.text
+              - if choice.correct
+                (Correct)
+      %td
+        = link_to 'Show', question
+      %td
+        = link_to 'Edit', edit_question_path(question)
+      %td
+        = link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete

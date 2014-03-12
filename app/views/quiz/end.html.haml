@@ -1,0 +1,19 @@
+/ # March 2014
+/ # Author: Kyla Kolb
+
+%h1
+	Quiz Results
+%p.question
+	You answered correctly 
+	= @correct
+	out of
+	= @total
+	questions.
+
+%p.score
+	= @score
+	\%
+
+= form_tag({:controller => "quiz", :action => "index"}, :method => "get") do
+	.center
+		= submit_tag("Take another quiz", :class => "submit")
