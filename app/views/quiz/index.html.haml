@@ -3,12 +3,9 @@
 
 %h1
 	Start Quiz
-
-= form_tag({:controller => "quiz",:action => "start"}) do
-	%p
-		= label_tag(:number, "How many questions do you want in the quiz?", :id => "question")
-	%p.center
-		= select_tag(:number, options_for_select((1..10).map {|x| [x, x]}), :id => "count")
-
-	.center
-		= submit_tag "Start!", :class => "submit"
+%br
+Click the Start button to begin the logo quiz.
+%br
+%br
+= form_tag({:controller => "quiz", :action => "start"})
+= submit_tag "Start!", :class => "submit"

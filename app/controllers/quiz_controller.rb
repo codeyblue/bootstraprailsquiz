@@ -9,7 +9,7 @@ class QuizController < ApplicationController
 	end
 
 	def start
-		total = params[:number].to_i
+		total = 8
 		all = Question.find(:all).map {|x| x.id}
 		session[:questions] = all.sort_by{rand}[0..(total-1)]
 
@@ -40,7 +40,7 @@ class QuizController < ApplicationController
 		@current = session[:current]
 		@total   = session[:total]
 
-		choiceid = params[:choice]
+		choiceid = params[:chosen]
 
 		@question = session[:question]
 		@choices  = session[:choices]

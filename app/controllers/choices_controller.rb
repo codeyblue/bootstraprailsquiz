@@ -7,9 +7,9 @@ class ChoicesController < ApplicationController
 
 	def create
 		@question = Question.find(params[:question])
-		text = params[:text]
-		correct = params[:correct] == "1"
-		new = Choice.create(:text => text, :correct => correct, :question_id => @question.id)
+		image = params[:image_src]
+		correct = params[:correct] == '1'
+		new = Choice.create(:image_src => image, :correct => correct, :question_id => @question.id)
 
 		if new.correct
 			@question.answer = new

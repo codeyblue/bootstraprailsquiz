@@ -12,8 +12,7 @@
 
 .feedback-choices
 	- @choices.each do |choice|
-		= choice.text
-		%br
+		= image_tag(choice.image_src)
 %br
 %br
 = form_tag({:controller => "quiz", :action => "question"}) do

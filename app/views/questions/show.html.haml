@@ -14,7 +14,7 @@
 %ul
   - @question.choices.each do |choice|
     %li
-      = choice.text
+      = choice.image_src
       - if choice.correct
         (Correct)
 
@@ -28,8 +28,8 @@
 = form_tag({:controller => "choices", :action => "create"}) do
   = hidden_field_tag :question, @question.id 
 
-  = label_tag :text, "Text"
-  = text_field_tag :text
+  = label_tag :image_src, "Image Source"
+  = text_field_tag :image_src
   %br
   = check_box_tag :correct 
   = label_tag :correct, "Correct"
