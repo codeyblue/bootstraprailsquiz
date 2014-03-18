@@ -10,9 +10,10 @@ class QuizController < ApplicationController
 
 	def start
 		total = 8
-		all = Question.find(:all).map {|x| x.id}
-		session[:questions] = all.sort_by{rand}[0..(total-1)]
+		session[:questions] = Question.find(:all).map {|x| x.id}
 
+		session[:user] = User.new
+		session[:user].save
 		session[:total]   = total
 		session[:current] = 0
 		session[:correct] = 0
@@ -30,7 +31,7 @@ class QuizController < ApplicationController
 		end
 
 		@question = Question.find(session[:questions][@current])
-		@choices = @question.choices.sort_by{rand}
+		@choices = @question.choices
 
 		session[:question] = @question
 		session[:choices] = @choices
@@ -39,6 +40,7 @@ class QuizController < ApplicationController
 	def answer
 		@current = session[:current]
 		@total   = session[:total]
+		@user = session[:user]
 
 		choiceid = params[:chosen]
 
@@ -55,6 +57,7 @@ class QuizController < ApplicationController
  			@correct = false
  		end
 
+		new = UserAnswer.create(:user_id => @user.id, :question_id => @question.id, :correct => @correct)
 		session[:current] += 1
 	end
 
@@ -63,6 +66,7 @@ class QuizController < ApplicationController
 		@total   = session[:total]
 
 		@score = @correct * 100 / @total
+		session[:user].number_correct = @score
 	end
 
 end

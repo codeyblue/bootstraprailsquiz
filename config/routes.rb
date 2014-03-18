@@ -1,4 +1,5 @@
 Bootstraprailsquiz::Application.routes.draw do
+  get "results/index"
   resources :questions
 
   get 'quiz/index'

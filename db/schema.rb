@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312192835) do
+ActiveRecord::Schema.define(version: 20140317234701) do
 
   create_table "choices", force: true do |t|
     t.boolean "correct"
@@ -32,5 +32,17 @@ ActiveRecord::Schema.define(version: 20140312192835) do
 
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
+
+  create_table "user_answers", force: true do |t|
+    t.integer "user_id"
+    t.integer "question_id"
+    t.boolean "correct"
+    t.integer "time"
+  end
+
+  create_table "users", force: true do |t|
+    t.integer "number_correct"
+    t.integer "time"
+  end
 
 end

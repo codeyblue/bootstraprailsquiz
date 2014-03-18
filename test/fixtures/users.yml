@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number_correct: 1
+  time: 1
+
+two:
+  number_correct: 1
+  time: 1

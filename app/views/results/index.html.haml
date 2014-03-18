@@ -1,0 +1,22 @@
+%h1
+  Results
+%table{border: "1"}
+  %tr
+    %th
+      
+    - @questions.each do |question|
+      %th
+        Question 
+        = question.id
+    %th
+      Percentages
+  - @users.each do |user|
+    %tr
+      %th
+        User 
+        = user.id
+      - user.user_answers.each do |answer|
+        %td
+          = answer.correct
+      %td
+        = user.number_correct
