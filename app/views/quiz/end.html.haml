@@ -14,6 +14,6 @@
 	= @score
 	\%
 
-= form_tag({:controller => "quiz", :action => "index"}, :method => "get") do
+= form_tag({:controller => "results", :action => "index"}, :method => "get") do
 	.center
-		= submit_tag("Take another quiz", :class => "submit")
+		= submit_tag("Compare your results", :class => "submit")

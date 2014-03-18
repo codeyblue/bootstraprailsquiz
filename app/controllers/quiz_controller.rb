@@ -64,9 +64,11 @@ class QuizController < ApplicationController
 	def end
 		@correct = session[:correct]
 		@total   = session[:total]
+		@user = session[:user]
 
 		@score = @correct * 100 / @total
-		session[:user].number_correct = @score
+		@user.number_correct = @score
+		@user.save
 	end
 
 end
