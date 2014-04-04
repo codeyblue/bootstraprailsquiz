@@ -2,7 +2,7 @@
 
 Created by Kyla Kolb
 
-## Derrived from
+## Derived from
 
 [railsquiz](https://github.com/limitedmage/railsquiz) by [Juliana Peña](http://julianapena.com)
 
